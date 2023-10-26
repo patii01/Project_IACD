@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+
+  mongo:
+    image: mongo
+    volumes:
+    - mongodb_data:/data/db
+    ports:
+    - 27017:27017
+
+  backend:
+    image: patii01/project_iacd_backend:backend_image
+    #build: ./backend/
+    ports:
+      - 80:80
+    volumes:
+    - app_logs:/backend/logs
+    depends_on: 
+      - 'mongo'
+
+  frontend:
+    image: patii01/project_iacd_frontend:frontend_image
+    #build: ./frontend/
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
+
+volumes:
+  mongodb_data:
+  app_logs:
