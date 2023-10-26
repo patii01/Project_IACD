@@ -3,7 +3,7 @@
 __Docker Hub__
 
 1. Frontend
-- docker tag frontend_image patii01 project_iacd_frontend:frontend_image
+- docker tag frontend_image patii01/project_iacd_frontend:frontend_image
 - docker push patii01/project_iacd_frontend:frontend_image
 
 2. Backend
