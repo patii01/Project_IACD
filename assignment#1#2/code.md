@@ -1,5 +1,8 @@
 ## Assignment 1 and 2
 
+__Dockerfile__
+- Create the Dockerfile for the backend and frontend
+
 __Network__
 - Create Network
 - docker network create projectdb

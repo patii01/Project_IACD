@@ -25,5 +25,7 @@ Deploy the multi-container application using Kubernetes Declarative Approach
     - See deployments: kubectl get deployments
     - See services: kubectl get services
 
+    - minkube service frontend
+
 
     
