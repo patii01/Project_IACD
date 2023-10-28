@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: frontend
@@ -13,7 +13,5 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: patii01/project_iacd_frontend:frontend_image
-        ports:
-        - containerPort: 3000
+        - name: frontend
+          image: patii01/project_iacd_frontend:frontend_image
