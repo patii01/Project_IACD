@@ -9,3 +9,6 @@ __Docker Hub__
 2. Backend
 - docker tag backend_image patii01/project_iacd_backend:backend_image
 - docker push patii01/project_iacd_backend:backend_image 
+
+3. Run Docker Compose
+- docker-compose up
