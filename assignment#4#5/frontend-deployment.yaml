@@ -15,3 +15,5 @@ spec:
       containers:
         - name: frontend
           image: patii01/project_iacd_frontend:frontend_image
+          ports:
+            - containerPort: 3000

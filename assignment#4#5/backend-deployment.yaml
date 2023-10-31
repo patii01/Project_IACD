@@ -15,11 +15,13 @@ spec:
       containers:
         - name: backend
           image: patii01/project_iacd_backend:backend_image
+          ports:
+            - containerPort: 80
           volumeMounts:
             - name: backend-pv
               mountPath: /backend/logs
           env:
-            - name: AUTH_ADDRESS
+            - name: DB_ADDRESS
               value: "mongo.default"
       volumes:
         - name: backend-pv
