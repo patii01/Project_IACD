@@ -3,15 +3,11 @@
 Deploy the multi-container application using Kubernetes Imperative Approach
 
     - See status of the container: minikube status minikube
-    - Deploy containers on kubernetes without replicas: 
-        - kubectl create deployment kubs-mongo-proj-depl --image=mongo
-        - kubectl create deployment kubs-backend-proj-depl --image=patii0101/project_iacd_backend:backend_image
-        - kubectl create deployment kubs-frontend-proj-depl --image=patii01/project_iacd_frontend:frontend_image
 
     - Deploy containers on kubernetes with replicas: 
         - kubectl create deployment kubs-mongo-proj-depl --image=mongo
         - kubectl create deployment kubs-backend-proj-depl --image=patii01/project_iacd_backend:backend_image --port=80 --replicas=2
-        -  kubectl create deployment kubs-frontend-proj-depl --image=patii01/project_iacd_frontend:frontend_image --port=3000 --replicas=3
+        - kubectl create deployment kubs-frontend-proj-depl --image=patii01/project_iacd_frontend:frontend_image --port=3000 --replicas=3
 
     - See deployments: kubectl get deployments
     - See pods: kubectl get pods
