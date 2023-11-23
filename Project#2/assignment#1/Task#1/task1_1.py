@@ -7,7 +7,7 @@ class Average_Number_of_Friends_by_Age(MRJob):
         return [MRStep(mapper=self.mapper_get_ages, reducer=self.reducer_average_ages)]
     
     def mapper_get_ages(self, _, line):
-        (id, name, age, friends) = line.split(',')
+        (_, _, age, friends) = line.split(',')
         yield age, int(friends)
 
     def reducer_average_ages(self, key, values):
