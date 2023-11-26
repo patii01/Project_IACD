@@ -1,6 +1,6 @@
 from pyspark import SparkContext, SparkConf
 
-conf = SparkConf().setMaster("local").setAppName("Most_Popular_Superhero")
+conf = SparkConf().setMaster("local").setAppName("Least_Popular_Superhero")
 sc = SparkContext(conf=conf)
 
 lines = sc.textFile("Marvel+Graph")
@@ -21,5 +21,7 @@ marvel = frequency_with_names.map(lambda x: (x[1][0], x[1][1]))
 
 marvel = marvel.sortByKey(False)
 
-for result in marvel.collect():
-    print("{0}\t".format(result[0]) + result[1])
+#get least popular superhero
+least_popular = marvel.collect()[-1]
+
+print("Least Popular Superhero:{1} \nFrequency:{0}".format(least_popular[0], least_popular[1]))

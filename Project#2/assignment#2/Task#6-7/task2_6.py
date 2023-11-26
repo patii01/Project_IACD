@@ -19,5 +19,9 @@ frequency_with_names = frequency.join(marvel_names)
 
 marvel = frequency_with_names.map(lambda x: (x[1][0], x[1][1]))
 
-for line in marvel.collect():
-    print(line)
+marvel = marvel.sortByKey(False)
+
+#get most popular superhero
+most_popular = marvel.first()
+
+print("Most Popular Superhero:{1} \nFrequency:{0}".format(most_popular[0], most_popular[1]))
