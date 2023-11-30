@@ -19,9 +19,14 @@ frequency_with_names = frequency.join(marvel_names)
 
 marvel = frequency_with_names.map(lambda x: (x[1][0], x[1][1]))
 
-marvel = marvel.sortByKey(False)
+marvel = marvel.sortByKey()
 
-#get least popular superhero
-least_popular = marvel.collect()[-1]
+# Get the least popular frequency
+least_popular_frequency = marvel.first()[0]
 
-print("Least Popular Superhero:{1} \nFrequency:{0}".format(least_popular[0], least_popular[1]))
+# Filter superheroes with the same frequency as the least popular one
+least_popular_superheroes = marvel.filter(lambda x: x[0] == least_popular_frequency).collect()
+
+
+for superhero in least_popular_superheroes:
+    print("\nLeast Popular Superhero: {1} \nFrequency: {0}".format(superhero[0], superhero[1]))
