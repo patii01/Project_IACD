@@ -1,11 +1,14 @@
 from pyspark import SparkContext, SparkConf
+import re
+
+WORD_RE = re.compile(r"[a-zA-Z0-9_]+")
 
 conf = SparkConf().setMaster("local").setAppName("Obtain_Word_Frequency_Book")
 sc = SparkContext(conf=conf)
 
 lines = sc.textFile("Book")
 
-words = lines.flatMap(lambda x: x.split())
+words = lines.flatMap(lambda x: WORD_RE.findall(x.lower()))
 #split() -> separa por espaços em branco
 
 words = words.map(lambda x: (x, 1))

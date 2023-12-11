@@ -14,7 +14,7 @@ words = lines.select(explode(split(lines.value, " ")).alias("word"))
 # Count the number of occurrences of each word
 wordCounts = words.groupBy("word").count()
 
-words_sort = wordCounts.orderBy("count", ascending=False)
+words_sort = wordCounts.orderBy("count", ascending=True)
 
 # Start running the query that prints the running counts to the console
 query = words_sort.writeStream.outputMode("complete").format("console").start()

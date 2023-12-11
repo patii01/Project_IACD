@@ -6,7 +6,6 @@ sc = SparkContext(conf=conf)
 lines = sc.textFile("Marvel+Graph")
 names = sc.textFile("Marvel+Names")
 
-#marvel_names = names.map(lambda x: (int(x.split(" ")[0]), ' '.join(x.split(" ")[1:])))
 marvel_names = names.map(lambda x: (int(x.split(" ")[0]), ' '.join([word.replace('"', '') for word in x.split(" ")[1:]])))
 
 marvel_graphs = lines.flatMap(lambda x: x.split())
